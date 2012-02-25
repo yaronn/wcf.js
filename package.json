@@ -1,0 +1,22 @@
+{
+    "name": "wcf.js",
+    "version": "0.0.1",
+    "description": "WCF compatible web services client stack for node.js",
+    "engines": { "node": ">=0.4.0" },
+    "author": "Yaron Naveh (yaronn01@gmail.com, http://webservices20.blogspot.com/)",
+    "dependencies": {
+        "ws.js": ">= 0.0.5",
+     },
+     "devDependencies": {
+        "nodeunit": ">=0.6.4",
+     },
+    "repository" : { 
+        "type":"git", 
+        "url":"https://github.com/yaronn/wcf.js.git" },
+    "main": "./index.js",
+    "directories": { "lib": "./lib" },
+    "keywords": ["wcf", "BasicHttpBinding", "WSHttpBinding", "CustomBinding", "ws-security", "mtom", "ws-addressing", "ws-star", "ws-*", "web service standards", "wsdl", "soap"],
+    "licenses": [{ 
+        "type" :  "MIT License",
+        "url" :   "http://www.opensource.org/licenses/mit-license.php" }]
+}

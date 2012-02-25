@@ -1,0 +1,15 @@
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service\service\bin\Debug\service.exe.config
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\service.exe.config
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\service.exe
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\service.pdb
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service-c#\service\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service-c#\service\obj\Debug\service.exe
+C:\Users\naveh\Documents\node-soap-ws-addressing\test\integration\working-services\service-c#\service\obj\Debug\service.pdb
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\service.exe.config
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\obj\Debug\service.exe
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\obj\Debug\service.pdb
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\service.exe
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\service.pdb
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\ClearUsernameBinding.dll
+C:\Users\naveh\Documents\features\projects\node-soap-ws-addressing\test\integration\working-services\service-c#\service\bin\Debug\ClearUsernameBinding.pdb
