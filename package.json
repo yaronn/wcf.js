@@ -5,10 +5,10 @@
     "engines": { "node": ">=0.4.0" },
     "author": "Yaron Naveh (yaronn01@gmail.com, http://webservices20.blogspot.com/)",
     "dependencies": {
-        "ws.js": ">= 0.0.5",
+        "ws.js": ">= 0.0.5"
      },
      "devDependencies": {
-        "nodeunit": ">=0.6.4",
+        "nodeunit": ">=0.6.4"
      },
     "repository" : { 
         "type":"git", 

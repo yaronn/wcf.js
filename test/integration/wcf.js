@@ -16,13 +16,13 @@ module.exports = {
   "simple basic http": function (test) {
     var binding = new wcf.BasicHttpBinding()
       , proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/simple-soap")
-    wcf_utils.soapTest(test, proxy)
+    utils.soapTest(test, proxy)
 	},
 
   "simple custom": function (test) {
-    var binding = new wcf.CustomBinding([new wcf.HttpTransportBindingElement()]);
+    var binding = new wcf.CustomBinding([new wcf.HttpTransportBindingElement()])
       , proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/simple-soap")
-    wcf_utils.soapTest(test, proxy)
+    utils.soapTest(test, proxy)
   },
 
   "custom soap12wsa10": function (test) {
@@ -32,7 +32,7 @@ module.exports = {
     ])
 			
     var proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/soap12wsa10")
-    wcf_utils.soapTest(test, proxy);
+    utils.soapTest(test, proxy);
   },
 
   "custom clearUsername": function (test) {
@@ -44,7 +44,7 @@ module.exports = {
     var proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/clearUsername")
     proxy.ClientCredentials.Username.Username = "yaron"
     proxy.ClientCredentials.Username.Password = "1234"
-    wcf_utils.soapTest(test, proxy)
+    utils.soapTest(test, proxy)
 	},
 
   "basic clearUsername": function (test) {		
@@ -56,7 +56,7 @@ module.exports = {
 
     proxy.ClientCredentials.Username.Username = "yaron"
     proxy.ClientCredentials.Username.Password = "1234"
-    wcf_utils.soapTest(test, proxy)
+    utils.soapTest(test, proxy)
 	},
 
   "custom mtom": function (test) {		
@@ -76,15 +76,15 @@ module.exports = {
       new wcf.HttpTransportBindingElement()
     ])
 		  , proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/mtom")
-    proxy.addAttachment("//*[local-name(.)='File1']", "./test/unit/client/files/p.jpg")
-    proxy.addAttachment("//*[local-name(.)='File2']", "./test/unit/client/files/text.txt")
+    proxy.addAttachment("//*[local-name(.)='File1']", "./test/files/p.jpg")
+    proxy.addAttachment("//*[local-name(.)='File2']", "./test/files/text.txt")
     proxy.send(message, "http://tempuri.org/IService/EchoFiles", function(message, ctx) {											
       var attach = proxy.getAttachment("//*[local-name(.)='File1']")
-      assert.deepEqual(fs.readFileSync("./test/unit/client/files/p.jpg"), 
+      assert.deepEqual(fs.readFileSync("./test//files/p.jpg"), 
                        attach, 
                        "attachment 1 is not the jpg file");
       var attach = proxy.getAttachment("//*[local-name(.)='File2']")
-      assert.deepEqual(fs.readFileSync("./test/unit/client/files/text.txt"), 
+      assert.deepEqual(fs.readFileSync("./test/files/text.txt"), 
                        attach, 
                        "attachment 2 is not the txt file")						
       test.done();

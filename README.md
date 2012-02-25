@@ -1,5 +1,5 @@
 ## WCF.JS
-A WCF-compatible web service client implementation for node.js. Written in pure javascript!
+A WCF-compatible web service client stack for node.js. Written in pure javascript!
 
 **Imagine this:**
     
@@ -16,7 +16,7 @@ A WCF-compatible web service client implementation for node.js. Written in pure 
       console.log(response)
     });
 
-(See below for a complete sample)
+(See below for a complete working sample)
 
 **Currently supports a subset of:**
 

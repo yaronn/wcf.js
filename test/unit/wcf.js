@@ -12,7 +12,7 @@ module.exports = {
 
     var c = b.getCustomBinding()
     test.equal(3, c.channels.length, "wrong number of channels")
-    test.equal("UsernameOverTransport", c.channels[0].AuthenticationMode, 
+    test.equal("UserNameOverTransport", c.channels[0].AuthenticationMode, 
               "wrong authentication mode")
     test.equal("Soap11", c.channels[1].MessageVersion, "wrong soap message version")
     test.equal("HttpsTransportBindingElement", utils.getTypeName(c.channels[2]), 
@@ -37,7 +37,7 @@ module.exports = {
     })
     var c = b.getCustomBinding()
     test.equal(3, c.channels.length, "wrong number of channels")
-    test.equal("usernameOverTransport", c.channels[0].AuthenticationMode, 
+    test.equal("UserNameOverTransport", c.channels[0].AuthenticationMode, 
                 "wrong authentication mode")
     test.equal("Soap12WSAddressing10", c.channels[1].MessageVersion, 
                 "wrong soap message version")
@@ -56,7 +56,7 @@ module.exports = {
     test.done()
 	},
 
-  "custom binding correctly translated to handlers when there is addressing and security": function(test) {
+  "custom binding correctly translated to handlers when there are addressing and security": function(test) {
     var binding = new wcf.CustomBinding([
       new wcf.SecurityBindingElement({AuthenticationMode: "UserNameOverTransport"}),
       new wcf.MtomMessageEncodingBindingElement({MessageVersion: "Soap11WSAddressingAugust2004"}),
@@ -66,17 +66,18 @@ module.exports = {
     var proxy = new wcf.Proxy(binding, "dummy")
     proxy.ClientCredentials.Username.Username = "yaron"
     var handlers = binding.getHandlers(proxy)
+    
     test.equal(4, handlers.length, "wrong number of handlers")
     test.equal("SecurityClientHandler", utils.getTypeName(handlers[0], 
               "http handler not found"))	
     test.equal("yaron", handlers[0].tokens[0].options.username, 
-              "wrong username found")
-    test.equal("MtomClientHandler", utils.getTypeName(handlers[1], 
-              "http handler not found"))
-    test.equal("WsAddressingClientHandler", utils.getTypeName(handlers[2], 
-              "http handler not found"))	
-    test.equal("http://schemas.xmlsoap.org/ws/2004/08/addressing", handlers[2].version, 
+              "wrong username found")    
+    test.equal("WsAddressingClientHandler", utils.getTypeName(handlers[1], 
+              "http handler not found"))	            
+    test.equal("http://schemas.xmlsoap.org/ws/2004/08/addressing", handlers[1].version, 
               "wrong addressing version found")
+    test.equal("MtomClientHandler", utils.getTypeName(handlers[2], 
+              "http handler not found"))
 		test.equal("HttpClientHandler", utils.getTypeName(handlers[3], 
               "http handler not found"))
     test.done()
