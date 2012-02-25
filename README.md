@@ -55,10 +55,10 @@ Install with [npm](http://github.com/isaacs/npm):
                            "<value>123</value>" +
                          "</GetData>" +
                         "</Body>" +
-                   "</Envelope>";
+                   "</Envelope>"
 
-    proxy.ClientCredentials.Username.Username = "yaron";
-    proxy.ClientCredentials.Username.Password = "1234";
+    proxy.ClientCredentials.Username.Username = "yaron"
+    proxy.ClientCredentials.Username.Password = "1234"
 
     proxy.send(message, "http://tempuri.org/IService/GetData", function(response, ctx) {
       console.log(response)
