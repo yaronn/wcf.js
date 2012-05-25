@@ -29,7 +29,8 @@ A WCF-compatible web service client stack for node.js. Written in pure javascrip
 * MTOM / Text encodings
 * WS-Addressing (all versions)
 * Transport Security (SSL)
-* Transport with message credential (Username)
+* TransportWithMessageCredential (Username)
+* Message security where ClientCredentialType is Certificate (signature only, without encryption)
 
 For more information visit my [wcf blog](http://webservices20.blogspot.com/).
 
@@ -101,3 +102,38 @@ Install with [npm](http://github.com/isaacs/npm):
       var file = proxy.getAttachment("//*[local-name(.)='File1']")
       fs.writeFileSync("result.jpg", file)      
     });
+
+### CustomBinding with message level signature
+    var wcf = require('wcf.js')    
+    , fs = require("fs")
+
+    var sec = new wcf.SecurityBindingElement({ AuthenticationMode: "MutualCertificate"
+     , ValidateResponseSignature: true})
+     , binding = new wcf.CustomBinding(
+      [ sec
+      , new wcf.TextMessageEncodingBindingElement({MessageVersion: "Soap11WSAddressing10"})
+      , new wcf.HttpTransportBindingElement()
+      ])
+
+    var proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/sign_body_timestamp_wsa")
+    proxy.ClientCredentials.ClientCertificate.Certificate = 
+    fs.readFileSync("client.pem").toString()
+    proxy.ClientCredentials.ServiceCertificate.DefaultCertificate = 
+    fs.readFileSync("server_public.pem").toString()    
+
+    var version = proxy.binding.getCustomBinding().getContentType() 
+      , ns = version=="text/xml" ? 
+        "http://schemas.xmlsoap.org/soap/envelope/" : 
+        "http://www.w3.org/2003/05/soap-envelope"
+      , message = "<Envelope xmlns='"+ns+"'>" +
+                    "<Header />" +
+                      "<Body>" +
+                        "<GetData xmlns='http://tempuri.org/'>" +
+                          "<value>123</value>" +
+                        "</GetData>" +
+                      "</Body>" +
+                  "</Envelope>"
+
+    proxy.send(message, "http://tempuri.org/IService/GetData", function(message, ctx) {
+      console.log(ctx)
+    })
