@@ -5,7 +5,8 @@
     "engines": { "node": ">=0.4.0" },
     "author": "Yaron Naveh (yaronn01@gmail.com, http://webservices20.blogspot.com/)",
     "dependencies": {
-        "ws.js": ">= 0.0.8"
+        "ws.js": ">= 0.0.12",
+        "xml-crypto": ">=0.0.2"
      },
      "devDependencies": {
         "nodeunit": ">=0.6.4"

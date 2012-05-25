@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Net.Security;
 
 /*
  * Want more WCF tips?
@@ -13,7 +14,12 @@ using System.Text;
  * Send feedback to yaronn01@gmail.com
  */
 
-
+[ServiceContract(ProtectionLevel=ProtectionLevel.Sign)]
+public interface IServiceSignOnly
+{
+    [OperationContract(Action = "http://tempuri.org/IService/GetData")]
+    string GetData(int value);
+}
 
 // NOTE: If you change the interface name "IService" here, you must also update the reference to "IService" in Web.config.
 [ServiceContract]

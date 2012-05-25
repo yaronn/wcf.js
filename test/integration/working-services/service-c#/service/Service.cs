@@ -17,7 +17,7 @@ using System.IO;
 
 
 // NOTE: If you change the class name "Service" here, you must also update the reference to "Service" in Web.config and in the associated .svc file.
-public class Service : IService
+public class Service : IService, IServiceSignOnly
 {
     public string GetData(int value)
     {

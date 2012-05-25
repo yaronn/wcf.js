@@ -1,7 +1,7 @@
-var CustomBinding = require('../lib/proxies/wcf.js').CustomBinding
-  , MtomMessageEncodingBindingElement = require('../lib/proxies/wcf.js').MtomMessageEncodingBindingElement
-  , HttpTransportBindingElement = require('../lib/proxies/wcf.js').HttpTransportBindingElement
-  , Proxy = require('../lib/proxies/wcf.js').Proxy
+var CustomBinding = require('../lib/wcf.js').CustomBinding
+  , MtomMessageEncodingBindingElement = require('../lib/wcf.js').MtomMessageEncodingBindingElement
+  , HttpTransportBindingElement = require('../lib/wcf.js').HttpTransportBindingElement
+  , Proxy = require('../lib/wcf.js').Proxy
   , fs = require('fs')
   , message = '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">' +
                 '<s:Header />' +
@@ -19,6 +19,8 @@ var CustomBinding = require('../lib/proxies/wcf.js').CustomBinding
                                 ])
   , proxy = new Proxy(binding, "http://localhost:7171/Service/mtom")
 
-proxy.addAttachment("//*[local-name(.)='File1']", "./test/unit/client/files/p.jpg");
-proxy.addAttachment("//*[local-name(.)='File2']", "./test/unit/client/files/text.txt");
-proxy.send(message, "http://tempuri.org/IService/EchoFiles", function(message, ctx) {});
+proxy.addAttachment("//*[local-name(.)='File1']", "p.jpg");
+proxy.addAttachment("//*[local-name(.)='File2']", "text.txt");
+proxy.send(message, "http://tempuri.org/IService/EchoFiles", function(message, ctx) {
+  console.log(ctx)
+});

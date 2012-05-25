@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.ServiceModel.Dispatcher;
+using System.ServiceModel.Channels;
 
 /*
  * Want more WCF tips?
@@ -52,7 +53,8 @@ namespace webservices20.blogspot.com
             {
                 Console.WriteLine(String.Format("Error: {0} \r\n {1}", e.Message, e.StackTrace));
                 Console.ReadLine();
-            }
+            }            
+
         }
 
         private static void NotifyHostOnStart()

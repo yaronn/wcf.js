@@ -59,6 +59,40 @@ module.exports = {
     utils.soapTest(test, proxy)
 	},
 
+
+  "certificate signing + wsa + timestamp + validation ": function (test) {    
+    var sec = new wcf.SecurityBindingElement({ AuthenticationMode: "MutualCertificate"
+                                             , ValidateResponseSignature: true})
+    var binding = new wcf.CustomBinding(
+      [ sec
+      , new wcf.TextMessageEncodingBindingElement({MessageVersion: "Soap11WSAddressing10"})
+      , new wcf.HttpTransportBindingElement()
+    ])
+      
+    var proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/sign_body_timestamp_wsa")
+    proxy.ClientCredentials.ClientCertificate.Certificate = 
+                fs.readFileSync("./examples/client.pem").toString()
+    proxy.ClientCredentials.ServiceCertificate.DefaultCertificate = 
+                fs.readFileSync("./examples/server_public.pem").toString()
+    utils.soapTest(test, proxy);
+  },
+
+
+  "certificate signing no wsa, no timestamp, no validation ": function (test) {    
+    var sec = new wcf.SecurityBindingElement({ AuthenticationMode: "MutualCertificate"
+                                             , IncludeTimestamp: false})    
+    var binding = new wcf.CustomBinding([   
+      sec,
+      new wcf.TextMessageEncodingBindingElement({MessageVersion: "Soap11"}),
+      new wcf.HttpTransportBindingElement()
+    ])
+      
+    var proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/sign_body_only")
+    proxy.ClientCredentials.ClientCertificate.Certificate = 
+            fs.readFileSync("./examples/client.pem").toString()
+    utils.soapTest(test, proxy);
+  },
+
   "custom mtom": function (test) {		
     var message = '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">' +
                     '<s:Header />' +
