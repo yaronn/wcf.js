@@ -117,9 +117,9 @@ Install with [npm](http://github.com/isaacs/npm):
 
     var proxy = new wcf.Proxy(binding, "http://localhost:7171/Service/sign_body_timestamp_wsa")
     proxy.ClientCredentials.ClientCertificate.Certificate = 
-    fs.readFileSync("client.pem").toString()
+            fs.readFileSync("client.pem").toString()
     proxy.ClientCredentials.ServiceCertificate.DefaultCertificate = 
-    fs.readFileSync("server_public.pem").toString()    
+            fs.readFileSync("server_public.pem").toString()    
 
     var version = proxy.binding.getCustomBinding().getContentType() 
       , ns = version=="text/xml" ? 
