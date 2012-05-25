@@ -1,7 +1,7 @@
-var CustomBinding = require('../lib/wcf.js').CustomBinding
-  , MtomMessageEncodingBindingElement = require('../lib/wcf.js').MtomMessageEncodingBindingElement
-  , HttpTransportBindingElement = require('../lib/wcf.js').HttpTransportBindingElement
-  , Proxy = require('../lib/wcf.js').Proxy
+var CustomBinding = require('wcf.js').CustomBinding
+  , MtomMessageEncodingBindingElement = require('wcf.js').MtomMessageEncodingBindingElement
+  , HttpTransportBindingElement = require('wcf.js').HttpTransportBindingElement
+  , Proxy = require('wcf.js').Proxy
   , fs = require('fs')
   , message = '<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">' +
                 '<s:Header />' +
