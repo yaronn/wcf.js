@@ -42,6 +42,7 @@ Install with [npm](http://github.com/isaacs/npm):
 ## Usage
 
 ### BasicHttpBinding (TransportWithMessageCredential)
+'''''''''''''''''''''''''''javascript
     var BasicHttpBinding = require('wcf.js').BasicHttpBinding
       , Proxy = require('wcf.js').Proxy
       , binding = new BasicHttpBinding(
@@ -64,8 +65,10 @@ Install with [npm](http://github.com/isaacs/npm):
     proxy.send(message, "http://tempuri.org/IService/GetData", function(response, ctx) {
       console.log(response)
     });
+'''''''''''''''''''''''''''
 
 ### CustomBinding (Mtom + UserNameOverTransport + WSAddressing10)
+''''javascript
     var CustomBinding = require('wcf.js').CustomBinding
       , MtomMessageEncodingBindingElement = require('wcf.js').MtomMessageEncodingBindingElement
       , HttpTransportBindingElement = require('wcf.js').HttpTransportBindingElement
@@ -102,8 +105,10 @@ Install with [npm](http://github.com/isaacs/npm):
       var file = proxy.getAttachment("//*[local-name(.)='File1']")
       fs.writeFileSync("result.jpg", file)      
     });
+''''''
 
 ### CustomBinding with message level signature
+'''''''''''''''javascript
     var wcf = require('wcf.js')    
     , fs = require("fs")
 
@@ -137,3 +142,4 @@ Install with [npm](http://github.com/isaacs/npm):
     proxy.send(message, "http://tempuri.org/IService/GetData", function(message, ctx) {
       console.log(ctx)
     })
+'''''''''''''''
