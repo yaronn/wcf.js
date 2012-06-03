@@ -1,6 +1,6 @@
 {
     "name": "wcf.js",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "A WCF-compatible web services client stack for node.js",
     "engines": { "node": ">=0.4.0" },
     "author": "Yaron Naveh (yaronn01@gmail.com, http://webservices20.blogspot.com/)",
