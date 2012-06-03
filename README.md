@@ -110,11 +110,11 @@ Install with [npm](http://github.com/isaacs/npm):
 ### CustomBinding with message level signature
 ```````````````javascript
     var wcf = require('wcf.js')    
-    , fs = require("fs")
+      , fs = require("fs")
 
     var sec = new wcf.SecurityBindingElement({ AuthenticationMode: "MutualCertificate"
-     , ValidateResponseSignature: true})
-     , binding = new wcf.CustomBinding(
+      , ValidateResponseSignature: true})
+      , binding = new wcf.CustomBinding(
       [ sec
       , new wcf.TextMessageEncodingBindingElement({MessageVersion: "Soap11WSAddressing10"})
       , new wcf.HttpTransportBindingElement()
