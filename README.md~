@@ -3,12 +3,12 @@ A WCF-compatible web service client stack for node.js. Written in pure javascrip
 
 **Imagine this:**
 
-```````````````````````````````````javascript
+```````````````````````````````````javascript    
     var binding = new WSHttpBinding(
           { MessageEncoding: "Mtom"
           , SecurityMode:"TransportWithMessageCredential"
           })
-      , proxy = new Proxy(binding)
+      , proxy = new Proxy(binding)      
 
     proxy.ClientCredentials.Username.Username = "yaron";
     proxy.ClientCredentials.Username.Password = "1234";
