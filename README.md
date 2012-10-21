@@ -34,7 +34,7 @@ A WCF-compatible web service client stack for node.js. Written in pure javascrip
 * TransportWithMessageCredential (Username)
 * Message security where ClientCredentialType is Certificate (signature only, without encryption)
 
-For more information visit my [wcf blog](http://webservices20.blogspot.com/).
+For more information visit my [wcf blog](http://webservices20.blogspot.com/) or [my twitter](https://twitter.com/YaronNaveh).
 
 ## Install
 Install with [npm](http://github.com/isaacs/npm):
