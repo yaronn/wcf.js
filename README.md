@@ -145,3 +145,7 @@ Install with [npm](http://github.com/isaacs/npm):
       console.log(ctx)
     })
 ```````````````
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yaronn/wcf.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
